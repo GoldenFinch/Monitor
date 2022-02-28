@@ -1,0 +1,18 @@
+.date {
+    font-size: 25px;
+}
+
+.list {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.item{
+    font-size: 20px;
+    margin: 5px;
+}
+
+.item_{
+    color: red;
+}
