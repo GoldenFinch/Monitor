@@ -22,7 +22,7 @@ function MonitorItem({date, authorization, source}) {
         let body = JSON.parse(JSON.stringify(body_check))
         body.bookDate = date
         axios({
-            url: 'https://i.hzmbus.com/webh5api/manage/query.book.info.data',
+            url: '/api/webh5api/manage/query.book.info.data',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

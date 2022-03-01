@@ -44,7 +44,7 @@ function App() {
             setMonitorList(() => array)
     }else{
       axios({
-          url: 'https://i.hzmbus.com/webh5api/login',
+          url: '/api/webh5api/login',
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
