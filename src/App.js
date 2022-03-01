@@ -9,8 +9,9 @@ let source = CancelToken.source()
 function App() {
   const [email, setEmail] = useState('742548742@qq.com')
   const [password, setPassword] = useState('zhanglei233')
-  const [startDate, setStartDate] = useState('1')
-  const [endDate, setEndDate] = useState('8')
+  const [startDate, setStartDate] = useState(new Date().getDate()+'')
+  const [endDate, setEndDate] = useState(new Date().getDate()+7+'')
+  const [status, setStatus] = useState('未开始...')
   const [authorization, setAuthorization] = useState()
   const [monitorList, setMonitorList] = useState([])
 
@@ -33,6 +34,7 @@ function App() {
 }
 
   const login = () => {
+    setStatus('登录中...')
     body_login.webUserid = email
     body_login.passWord = password
     if(authorization){
@@ -60,6 +62,7 @@ function App() {
                 array.push('2022-03-' + (i < 10 ? '0' + i : i))
               }
               setMonitorList(array)
+              setStatus('查询中...')
           }else{
               login()
           }
@@ -92,6 +95,7 @@ function App() {
           }
           }>取消</button>
       </div>
+      <div className='label'>{status}</div>
       <div>{
         monitorList.map((date) => <MonitorItem key={date} date={date} authorization={authorization} source={source}></MonitorItem>)
       }</div>
